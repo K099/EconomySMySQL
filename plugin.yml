@@ -3,4 +3,4 @@ author: "LostTeam"
 version: 1.0.0
 api: [2.0.0, 1.13.1]
 main: LostTeam\MySQL
-description: ""
+description: "MySQL Support for the EconomyS plugins!"
