@@ -13,7 +13,6 @@ class MySQLProvider implements ProviderTemplate {
      * @var EconomySMySQL $SQLplugin
      */
     private $db, $plugin, $SQLplugin;
-    private $groupsData = [];
     public function __construct(EconomyAPI $plugin) {
         $this->plugin = $plugin;
         $this->SQLplugin = $this->plugin->getServer()->getPluginManager()->getPlugin("EconomySMySQL");
@@ -30,28 +29,7 @@ class MySQLProvider implements ProviderTemplate {
         )";
         $query = $this->db->escape_string($query);
         $this->db->multi_query($query);
-        $this->loadMoneyData();
         $this->plugin->getServer()->getScheduler()->scheduleRepeatingTask(new EconomySMySQLTask($this->plugin, $this->db), 1200);
-    }
-
-    public function loadMoneyData() {
-        $result01 = $this->db->query("SELECT * FROM money");
-
-        if($result01 instanceof \mysqli_result) {
-            if($result01->num_rows <= 0)  {
-                $this->plugin->getLogger()->notice("No groups found in table 'money', loading groups defined in default SQL script");
-
-                $result01 = $this->db->query("SELECT * FROM money");
-            }
-
-            while($currentRow = $result01->fetch_assoc()) {
-                $userName = $currentRow["userName"];
-
-                $this->groupsData[$userName]["cash"] = $currentRow["cash"];
-            }
-
-            $result01->free();
-        }
     }
 
     /**
