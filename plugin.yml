@@ -2,6 +2,6 @@ name: EconomySMySQL
 author: "LostTeam"
 version: 1.0.0
 api: [2.0.0, 1.13.1]
-main: LostTeam\MySQL
+main: LostTeam\EconomySMySQL
 description: "MySQL Support for the EconomyS plugins!"
 depend: EconomyAPI

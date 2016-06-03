@@ -1,0 +1,9 @@
+# TODO put LostTeam text Logo here
+---
+mysql-settings:
+  host: "LostTeam.github.io"
+  port: 3306
+  user: "YourUsernameGoesHere"
+  password: "YourPasswordGoesHere"
+  db: "YourDataBaseNameGoesHere"
+...

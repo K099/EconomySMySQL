@@ -4,7 +4,7 @@ namespace LostTeam;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat as TF;
 
-class MySQL extends PluginBase{
+class EconomySMySQL extends PluginBase {
   public function onEnable() {
     $this->getLogger()->notice(TF::GREEN."Enabled!");
   }
