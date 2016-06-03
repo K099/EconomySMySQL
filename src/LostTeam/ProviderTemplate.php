@@ -17,47 +17,48 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace LostTeam;
+
 use onebone\economyapi\EconomyAPI;
 use pocketmine\Player;
 
 interface ProviderTemplate {
     public function __construct(EconomyAPI $plugin);
     /**
-     * @param \pocketmine\Player|string $player
+     * @param Player $player
      * @return bool
      */
     public function accountExists(Player $player);
     /**
-     * @param \pocketmine\Player|string $player
-     * @param float $defaultMoney
+     * @param Player $player
+     * @param integer $defaultMoney
      * @return bool
      */
     public function createAccount(Player $player, $defaultMoney = 1000);
     /**
-     * @param \pocketmine\Player|string $player
+     * @param Player $player
      * @return bool
      */
     public function removeAccount(Player $player);
     /**
-     * @param string $player
-     * @return float|bool
+     * @param Player $player
+     * @return integer
      */
     public function getMoney(Player $player);
     /**
-     * @param \pocketmine\Player|string $player
-     * @param float $amount
+     * @param Player $player
+     * @param integer $amount
      * @return bool
      */
     public function setMoney(Player $player, $amount);
     /**
-     * @param \pocketmine\Player|string $player
-     * @param float $amount
+     * @param Player $player
+     * @param integer $amount
      * @return bool
      */
     public function addMoney(Player $player, $amount);
     /**
-     * @param \pocketmine\Player|string $player
-     * @param float $amount
+     * @param Player $player
+     * @param integer $amount
      * @return bool
      */
     public function reduceMoney(Player $player, $amount);
@@ -69,6 +70,12 @@ interface ProviderTemplate {
      * @return string
      */
     public function getName();
+    /**
+     * @return bool
+     */
     public function save();
+    /**
+     * @return bool
+     */
     public function close();
 }
