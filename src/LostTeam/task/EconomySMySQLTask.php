@@ -9,6 +9,7 @@ class EconomySMySQLTask extends PluginTask {
     
     /*
      * @var \mysqli $db
+     * @var EconomyAPI $plugin
      */
     private $db, $plugin;
 
@@ -22,6 +23,10 @@ class EconomySMySQLTask extends PluginTask {
         $this->plugin = $plugin;
         $this->db = $db;
     }
+
+    /**
+     * @param $currentTick
+     */
     public function onRun($currentTick) {
         if($this->db->ping())
         {
