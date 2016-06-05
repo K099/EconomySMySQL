@@ -1,7 +1,8 @@
 # TODO put LostTeam text Logo here
 ---
+#Settings for hosting the MySQL server
 mysql-settings:
-  host: "LostTeam.github.io"
+  host: "0.0.0.0"
   port: 3306
   user: "YourUsernameGoesHere"
   password: "YourPasswordGoesHere"

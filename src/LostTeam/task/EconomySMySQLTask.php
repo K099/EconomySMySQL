@@ -19,7 +19,6 @@ class EconomySMySQLTask extends PluginTask {
      */
     public function __construct(EconomyAPI $plugin, \mysqli $db) {
         parent::__construct($plugin);
-
         $this->plugin = $plugin;
         $this->db = $db;
     }
